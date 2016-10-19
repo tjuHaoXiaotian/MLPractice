@@ -2,7 +2,6 @@
 from spider_other.img.basic_spider import html_downloader
 from spider_other.img.basic_spider import html_outputer
 from spider_other.img.basic_spider import url_manager
-
 from spider_other.img.basic_spider import html_parser
 
 

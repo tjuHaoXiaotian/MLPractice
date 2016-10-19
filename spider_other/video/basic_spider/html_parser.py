@@ -12,21 +12,24 @@ class HtmlParser(object):
         new_urls = set()
         datas = []
         page_node = soup.find('div',class_="bm bw0 pgs cl")
-        a_page_index = page_node.find_all('a', href=re.compile(r"forum-48"))
+        a_page_index = page_node.find_all('a', href=re.compile(r"forum-"))
         # print page_node
 
-        table_node = soup.find('table', id="threadlisttableid")
-        a_node = table_node.find_all('a', class_="s xst")
+        form_node = soup.find('form', id="moderate")
+        # print form_node
+        a_node = form_node.find_all('a', class_="z")
 
 
         if a_node != None:
             for link in a_node:
                 data = {}
-                new_url,text =  link['href'], link.get_text()
+                new_url,text =  link['href'], link['title']
                 new_full_url = urlparse.urljoin(page_url,new_url)
 
                 data["name"] = text
                 data["url"] = new_full_url
+
+                print data['name'], data['url']
                 datas.append(data)
             for link in a_page_index:
                 new_url = link['href']

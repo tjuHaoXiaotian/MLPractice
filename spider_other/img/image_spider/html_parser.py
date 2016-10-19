@@ -13,21 +13,14 @@ class HtmlParser(object):
         table_node = soup.find('div',class_="pcb").find("table")
         # print table_node
         img_nodes = table_node.findAll('img')
-        video_node = table_node.find('iframe')
-        if img_nodes is not None:
-            for img in img_nodes:
-                # print img['src']
-                new_urls.add(img['file'])
-                print img["file"]
-        if video_node is not None:
-            # print video_node
-            video_url = video_node['src']
-            video_url = video_url.split('f=')[1]
+        # print img_nodes
+        # print len(img_nodes)
+        for img in img_nodes:
+            # print img['src']
+            new_urls.add(img['file'])
 
-            if video_url is not None:
-                new_urls.add(video_url)
-                print video_url
-
+        # print img_nodes
+        # print new_urls
         return new_urls
 
 

@@ -5,8 +5,7 @@ import time
 from spider_other.video.video_spider import datareader
 from spider_other.video.video_spider import html_downloader
 from spider_other.video.video_spider import html_outputer
-
-from spider_other.img.image_spider import html_parser
+from spider_other.video.video_spider import html_parser
 
 
 class SpiderMain(object):
