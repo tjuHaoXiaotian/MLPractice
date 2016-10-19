@@ -1,9 +1,8 @@
 # coding=utf-8
-import re
 
-from bs4 import BeautifulSoup
+# 网页数据格式
 
-html_doc ="""
+demoCode = """
 <div id="contain">
 <div class="lblmain">
 <div class="index_box">
@@ -176,23 +175,5 @@ html_doc ="""
 
 """
 
-soup = BeautifulSoup(html_doc,'html.parser',from_encoding='utf-8')
-
-# print '获取所有的链接'
-# links = soup.find_all('a')
-# for link in links:
-#     print link.name,link['href'],link.get_text()
-
-# print "正则表达式"
-# link_node = soup.find('a',href=re.compile(r"http://jianyi.baidu.com/"))
-#
-# print link_node.name, link_node['href'], link_node.get_text()
-
-
-
-print "获取div段落文字"
-div_node = soup.find('div',id="contain")
-
-a_node = div_node.find_all('a',href=re.compile(r"/html"))
-for link in a_node:
-    print link.name,link['href'],link.get_text()
+# url: http://www.hf1z.com/html/9/
+# 分页url:  /html/9/index2.html, /html/9/index3.html , /html/9/index4.html

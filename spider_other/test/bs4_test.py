@@ -196,12 +196,3 @@ div_node = soup.find('div',id="contain")
 a_node = div_node.find_all('a',href=re.compile(r"/html"))
 for link in a_node:
     print link.name,link['href'],link.get_text()
-
-
-
-
-
-
-
-
-

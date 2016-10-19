@@ -25,17 +25,3 @@ response3 = urllib2.urlopen(request)
 print response3.getcode()
 print cj
 print response3.read()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
