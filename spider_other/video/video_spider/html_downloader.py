@@ -3,6 +3,7 @@ import urllib
 import urllib2
 
 class HtmlDownloader(object):
+
     def download(self, url):
         if url is None:
             return None
@@ -23,6 +24,28 @@ class HtmlDownloader(object):
             print "can't get this dir or image :",url
             return None,0
 
+    def download_img(self, url,writer,file_name):
+        if url is None:
+            return None
+        try:
+            request = urllib2.Request(url)
+            request.add_header("user-agent", "Mozilla/5.0")
+
+            # request.
+            # response = urllib2.urlopen(url)
+            response = urllib2.urlopen(request, data=None, timeout=10)
+
+            if response.getcode() != 200:
+                return None
+
+            print url
+            data = response.read()
+            writer.write(file_name, data)
+            return 1
+        except:
+            print "can't get this dir or image :",url
+            return 0
+
     def Schedule(self,a, b, c):
         '''''
         a:已经下载的数据块
@@ -32,14 +55,17 @@ class HtmlDownloader(object):
         per = 100.0 * a * b / c
         if per > 100:
             per = 100
-        print '%.2f%%' % per
+        if per - self.pre > 10:
+            print '%.2f%%' % per
+            self.pre = per
 
     def download_file(self, url,file_name):
-        print file_name
+        self.pre = 0.0
+        print url
         if url is None:
             return 0
         try:
-            urllib.urlretrieve(url, file_name)
+            urllib.urlretrieve(url, file_name,self.Schedule)
             return 1
         except:
             print "can't get this dir or image :", url

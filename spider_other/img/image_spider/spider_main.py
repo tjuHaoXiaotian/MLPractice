@@ -33,7 +33,7 @@ class SpiderMain(object):
         total_failed = 0
         for item in self.urls:
             try:
-                if count < 831:
+                if count < 1:
                     count += 1
                     continue
                 # else:
@@ -115,9 +115,20 @@ class SpiderMain(object):
 
 
 if __name__ == "__main__":
-    csv_url = "list.csv"
-    base_dir = "/home/haoxiaotian/data2"
-    log_file = "log.txt"
+
+    csv_url = "resource/偷拍自拍-偷偷撸影院.csv"
+    base_dir = "/home/haoxiaotian/偷偷撸2014在线影院/偷拍自拍"
+    log_file = "logs/log.偷拍自拍"
+
+    # csv_url = "resource/美腿丝袜-偷偷撸影院.csv"
+    # base_dir = "/home/haoxiaotian/偷偷撸2014在线影院/美腿丝袜"
+    # log_file = "log.美腿丝袜"
+
+    # csv_url = "resource/亚洲色图-偷偷撸影院.csv"
+    # base_dir = "/home/haoxiaotian/偷偷撸2014在线影院/亚洲色图"
+    # log_file = "log.亚洲色图"
+
+
     # base_dir = "d:/data_image"
     obj_spider = SpiderMain()
     obj_spider.craw(csv_url,base_dir,log_file)
