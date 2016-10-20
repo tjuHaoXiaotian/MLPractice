@@ -8,7 +8,6 @@ import bs4
 class HtmlParser(object):
 
     def _get_new_urls_and_data(self, page_url, soup):
-        # a /html/9/baxinniangganliaohuanshifenxuene16P/ 把新娘干了，还是粉穴呢[16P]
         new_urls = set()
         datas = []
         page_node = soup.find('div',class_="bm bw0 pgs cl")

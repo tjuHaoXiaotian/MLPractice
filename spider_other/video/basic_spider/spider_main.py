@@ -2,8 +2,8 @@
 from spider_other.video.basic_spider import html_downloader
 from spider_other.video.basic_spider import html_outputer
 from spider_other.video.basic_spider import url_manager
-
-from spider_other.img.basic_spider import html_parser
+from spider_other.video.basic_spider import html_parser
+from spider_other.video.basic_spider import config
 
 
 class SpiderMain(object):
@@ -41,11 +41,9 @@ class SpiderMain(object):
 
 
 if __name__ == "__main__":
-    # root_url = "http://www.pppav7171.net/forum-58-1.html" #偷拍自拍
-    # name = '偷拍自拍-偷偷撸影院'
 
-    root_url = "http://www.pppav7171.net/forum-62-1.html" #欧美性爱
-    name = '欧美性爱-偷偷撸影院'
+    root_url = config.root_url
+    name = config.name
 
     obj_spider = SpiderMain()
     obj_spider.craw(root_url,name)

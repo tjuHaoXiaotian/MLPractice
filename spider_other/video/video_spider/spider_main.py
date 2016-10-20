@@ -5,6 +5,7 @@ import time
 from spider_other.video.video_spider import datareader
 from spider_other.video.video_spider import html_downloader
 from spider_other.video.video_spider import html_outputer
+from spider_other.video.video_spider import config
 from spider_other.video.video_spider import html_parser
 
 
@@ -120,9 +121,9 @@ class SpiderMain(object):
 
 
 if __name__ == "__main__":
-    csv_url = "resources/偷拍自拍-偷偷撸影院.csv"
-    base_dir = "/home/haoxiaotian/偷偷撸2014在线影院/video/偷拍自拍"
-    log_file = "logs/log.偷拍自拍"
-    # base_dir = "d:/data_image"
+    csv_url = config.csv_url
+    base_dir = config.base_dir
+    log_file = config.log_file
+
     obj_spider = SpiderMain()
     obj_spider.craw(csv_url,base_dir,log_file)
